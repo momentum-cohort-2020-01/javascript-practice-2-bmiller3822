@@ -6,14 +6,159 @@
 // If the potential member is not in the array, return the array unchanged.
 // If the potential member is in the array, remove all instances of it from the array.
 
+//First and second failed attempts
+// let students = ["Cadence", "Ordel", "Marion"];
+// let idx =students.indexOf("Marion");
+// students.splice(index, 2);
+// students;
+
+// let students = ["Cadence", "Ordel", "Marion"];
+// function remove (students){
+//     let idx=students.indexOf("Marion");
+//     students.slice (idx,2);
+// }
+
+//Failed third attempt
+// let students = ["Cadence", "Ordel", "Marion"];
+// let noMarion = students.reduce(function (current, student){
+//     if (student="Marion"){
+//         return student;
+//     } else {
+//         return current
+//     }
+// }
+
+//Failed 4th attempt
+// function remove (students){
+//     let students = ["Cadence", "Ordel", "Marion"];
+//     let idx = students.indexOf("Marion")
+//     for (let student of students){
+//         students.splice(idx, 2)
+//     } return students;
+// }
+
+//Failed 5th attempt
+// function remove (students){
+//     let students = ["Cadence", "Ordel", "Marion"];
+//     let idx = students.indexOf("Marion");
+//     students.splice(idx, 2);
+//     } 
+
+
+// function remove (){
+//     let students = ["Cadence", "Ordel", "Marion"];
+//     // let count=0
+//     while (students.includes ("Marion")){
+//         students.splice ("Marion");
+//         // count++;
+//     } return students;
+// }
+// as long as the way the array includes the item (.includes) 
+// don't use splice, slice 
+
+// function remove (){
+//     let students = ["Cadence", "Ordel", "Marion"]
+//     let idx = students.indexOf("Marion")
+//     students.splice(idx, 2)
+//     students
+// }
+
+// function remove (arr, item){
+//     while (arr.includes(item)){
+//     arr.splice(arr.indexOf(item),1)
+//     }return arr;
+// }
+
+function remove (arr, item){
+    let newArray = [];
+    for (let i=0; i<arr.length;){
+        if (arr[i]!== item){
+        newArray.push(arr[i])
+        i++;
+    } else i++
+} return newArray;
+}
+
+
+remove(['Cadence', 'Ordel', 'Marion'], 'Marion')
+
 // 2. Revisit your "remove" function. Make sure that it does not change the original
 // array but instead returns a new array.
+
+// function remove (arr, item){
+//     let newArr=arr;
+//     while (newArr.includes(item)){
+//     newArr= newArr.slice(arr.indexOf(item))
+//     } return newArr;
+// }
+
+// function remove (arr, item){
+//     while (arr.includes(item)){
+//     arr= arr.slice(arr.indexOf(item))
+//     } return arr;
+// }
+
+// function remove (arr, item){
+//     let newArr=arr;
+//     for (let item of arr){
+//         Array.push(item);
+//     }
+// }
+
+//See above for the correct answer
+
+// ([begin[, end]])
+
 
 // 3. Create a function called "sum" that takes an array of numbers and
 // returns the sum of those numbers.
 
+// let numbers = [1, 2, 3, 4]
+// let sumTwo = 0
+
+// function sum (){
+//     for (let number of numbers){
+//         sumTwo += number
+//     } return sumTwo
+// }
+
+function sum (arr){
+    return arr.reduce(function(a,b){
+    return a+b;
+    }, 0);
+}
+
+// arrSum = function(arr){
+//   return arr.reduce(function(a,b){
+//     return a + b
+//   }, 0);
+// }
+//FROM THE INTERNET
+
+// function sum (){
+//     for (let num of numbers){
+//         sum += num;
+//     } 
+// }
+//Not sure if this works
+
 // 4. Create a function called "average" that takes an array of numbers
 // and returns the average of those numbers.
+
+function average (arr){
+    return arr.reduce(function(a,b){
+    return a+b;
+    }, 0)/(arr.length);
+}
+
+
+
+// let numbers = [1,2,3,4]
+// let sum = 0
+
+// function average (arr){
+//     for (let num of )
+// }
 
 // 5. Create a function called "minimum" that takes an array of numbers and
 // returns the smallest number in that array.
