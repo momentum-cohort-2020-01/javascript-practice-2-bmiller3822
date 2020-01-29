@@ -69,14 +69,14 @@
 //     }return arr;
 // }
 
-function remove (arr, item){
+function remove(arr, item) {
     let newArray = [];
-    for (let i=0; i<arr.length;){
-        if (arr[i]!== item){
-        newArray.push(arr[i])
-        i++;
-    } else i++
-} return newArray;
+    for (let i = 0; i < arr.length;) {
+        if (arr[i] !== item) {
+            newArray.push(arr[i])
+            i++;
+        } else i++
+    } return newArray;
 }
 
 
@@ -122,9 +122,9 @@ remove(['Cadence', 'Ordel', 'Marion'], 'Marion')
 //     } return sumTwo
 // }
 
-function sum (arr){
-    return arr.reduce(function(a,b){
-    return a+b;
+function sum(arr) {
+    return arr.reduce(function (a, b) {
+        return a + b;
     }, 0);
 }
 
@@ -145,23 +145,50 @@ function sum (arr){
 // 4. Create a function called "average" that takes an array of numbers
 // and returns the average of those numbers.
 
-function average (arr){
-    return arr.reduce(function(a,b){
-    return a+b;
-    }, 0)/(arr.length);
-}
-
-
-
-// let numbers = [1,2,3,4]
-// let sum = 0
+// var arr = [5, 10, 15, 20]
 
 // function average (arr){
-//     for (let num of )
+//     return arr.reduce(function(a,b){
+//     return a+b;
+//     }, 0)/(arr.length);
 // }
+
+// console.log (average(arr));
+
+// var arr = [5, 10, 15, 20]
+
+function average(arr) {
+    if (arr.length > 0) {
+        return arr.reduce(function (a, b) {
+            return a + b;
+        }, 0) / (arr.length);
+    }
+}
+console.log(average(arr));
+
+//This is a great example of having to have a length greater than zero so that NaN becomes undefined. 
 
 // 5. Create a function called "minimum" that takes an array of numbers and
 // returns the smallest number in that array.
+
+// function minimum (arr){
+//     if (arr.length>0){
+//         Math.min(arr);
+//     } console.log (minimum(arr));
+// }
+
+var arrTwo = [5, 10, 15, 20]
+
+function minimum(arrTwo) {
+    if (arrTwo.length > 0) {
+        return Math.min(...arrTwo);
+    }
+}
+//arrMax = function(arr){
+//     return Math.max(...arr);
+// }
+
+
 
 // 6. There are many techniques to sort arrays in programming. Your programming
 // language will likely include the ability to do this. We are going to
@@ -187,8 +214,142 @@ function average (arr){
 // https://courses.cs.vt.edu/csonline/Algorithms/Lessons/SelectionSort/index.html
 // to see how. This may make more sense to you.
 
+
+//Courtesy of https://github.com/benoitvallon/computer-science-in-javascript/tree/master/sorting-algorithms-in-javascript
+var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
+var arrayCopy = array.slice(0);
+
+function swap(arrayCopy, i, j){
+    var temp = arrayCopy[i];
+    arrayCopy[i]= arrayCopy[j];
+    arrayCopy[j]=temp;
+}
+
+function selectionSort(arrayCopy){
+    for(var i=0; i<arrayCopy.length; i++){
+        var min = i;
+        for (var j=i+1; j<arrayCopy.length; j++){
+            if(arrayCopy[j]<arrayCopy[min]){
+                min=j;
+            }
+        }
+        if(i!==min){
+            swap(arrayCopy,i,min);
+        }
+    }
+    return arrayCopy;
+}
+
+console.log(selectionSort(arrayCopy));
+
+//From the sorting repo I found: https://github.com/benoitvallon/computer-science-in-javascript/tree/master/sorting-algorithms-in-javascript
+// array to sort
+// var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
+
+// swap function helper
+// function swap(array, i, j) {
+//   var temp = array[i];
+//   array[i] = array[j];
+//   array[j] = temp;
+// }
+
+// function selectionSort(array) {
+//   for(var i = 0; i < array.length; i++) {
+//     var min = i;
+//     for(var j = i + 1; j < array.length; j++) {
+//       if(array[j] < array[min]) {
+//         min = j;
+//       }
+//     }
+//     if(i !== min) {
+//       swap(array, i, min);
+//     }
+//   }
+//   return array;
+// }
+
+// console.log(selectionSort(array)); // => [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+
+//Third failed attempt, but closer
+// var array = [20, 10, 15, 5]
+// var arrayCopy = array.slice(0);
+
+// function selectionSort (arrayCopy){
+//     for (let i = 0; i<arrayCopy.length; i++){
+//         let min=i;
+//         for (let j=i++; j<arrayCopy.length; j++){
+//             if(arrayCopy[min]>arrayCopy[j]){
+//                 min=j;
+//             }
+//         }
+//         if (min !== i){
+//             let tmp = arrayCopy[i];
+//             arrayCopy[i]=arrayCopy[min];
+//             arrayCopy[min]=tmp;
+//         }
+//     }
+//     return arrayCopy;
+// }
+
+
+
+
+// var array = [20, 10, 15, 5]
+// var arrayCopy = array.slice(0);
+
+// Second failed attempt
+// var array = [20, 10, 15, 5];
+// var arrayCopy = array.slice(0);
+
+// function selectionSort(arrayCopy) { 
+    
+//     if (array.length>0){
+//     for (let i = 0; i < array.length;) {
+//         if (array[i] === Math.min(array)) {
+//             arrayCopy.shift(array[i]);
+//             i++;
+//         } 
+//     }    
+//     }
+// }
+// selectionSort(array);
+
+// function remove(arr, item) {
+//     let newArray = [];
+//     for (let i = 0; i < arr.length;) {
+//         if (arr[i] !== item) {
+//             newArray.push(arr[i])
+//             i++;
+//         } else i++
+//     } return newArray;
+// }
+
+// First failed attempt
+// function minimum(array) {
+//     if (array.length > 0) {
+//         arrayCopy.push(Math.min(...array));
+//     } i++;
+// }
+// } return arrayCopy;
+// }
+
 // 7. Create a function called `textList` that takes an array and joins its elements
 // into a string separated by commas.
 //
 // For example, `textList(['Cadence', 'Ordel', 'Marion'])` results in the string
 // `"Cadence,Ordel,Marion"`.
+
+function textList (arrayOne){
+    var newArray = [];
+    if(arrayOne.filter(arrayOne => typeof arrayOne === 'string' && arrayOne.length > 0)){
+    arrayOne.concat(newArray);
+    } return arrayOne;
+}
+
+
+//First failed attempt
+// function textList (arrayOne, arrayTwo){
+//     if(arrayOne.filter(x => typeof x === 'string' && x.length > 0) && arrayTwo.filter(x => typeof x === 'string' && x.length > 0)){
+//     arrayOne.concat(arrayTwo);
+//     } return
+// }
