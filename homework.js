@@ -69,7 +69,38 @@
 //     }return arr;
 // }
 
-function remove(arr, item) {
+
+//Practice with Bryan, i.e. a much easier way to do it lol
+// function remove (arr, removal){
+//     let newArray = [];
+//     for (let i=0; i<arr.length; i++){
+//         if (arr[i]!==removal){
+//             newArray.push(arr[i]);
+//         } 
+//     } return newArray;
+// }
+
+//Another way to do it from Amy that works with a while loop and indexOf.  This also keeps the original array intact:
+// function remove(arr, item){
+//     while (arr.includes(item)){
+//         let idx = arr.indexOf(item);
+//         arr.splice(idx,1);
+//     }
+//     return arr;
+// }
+
+//Another way to do it from Amy for number 2.  Uses a for of loop.  Elegant way to do it.
+// function remove (arr,itemToRemove){
+//     let result=[];
+//     for (let item of arr){
+//         if (item!= itemToRemove){
+//             result.push(item);
+//         }
+//     }
+//     return result;
+// }
+
+function removeOne(arr, item) {
     let newArray = [];
     for (let i = 0; i < arr.length;) {
         if (arr[i] !== item) {
@@ -168,9 +199,13 @@ console.log(average(arr));
 
 //This is a great example of having to have a length greater than zero so that NaN becomes undefined. 
 
+
+
+
 // 5. Create a function called "minimum" that takes an array of numbers and
 // returns the smallest number in that array.
 
+//failed attempt
 // function minimum (arr){
 //     if (arr.length>0){
 //         Math.min(arr);
@@ -184,8 +219,30 @@ function minimum(arrTwo) {
         return Math.min(...arrTwo);
     }
 }
-//arrMax = function(arr){
-//     return Math.max(...arr);
+
+//Example from Amy that should work ***:
+// function minimum(array){
+//     let result = array[0];
+//     if (array.length>0){
+//         for (let i=1; i<array.length; i++){
+//             if(array[i]<result){
+//                 result=array[i];
+//             }
+//         }
+//     }
+//     return result;
+// }
+
+//Another example from Amy.  Loved this.:
+// function minimum(numbers){
+//     let smallestNumber = numbers[0];
+//     for (let number of numbers){
+        //is this number the smallest?  Literal comment here<
+//         if (number < smallestNumber){
+//             smallestNumber=number;
+//         }
+//     }
+//     return smallestNumber;
 // }
 
 
